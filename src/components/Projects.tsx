@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 import { useRef } from "react";
 import { ArrowUpRight, Github } from "lucide-react";
 
+const base = import.meta.env.BASE_URL;
+
 type Project = {
   year: string;
   title: string;
@@ -26,7 +28,7 @@ const projects: Project[] = [
     description:
       "CRM SaaS multi-tenant para o mercado imobiliário. Atuo end-to-end — da modelagem do banco e APIs até telas, bug fixes críticos, ganhos de performance e integrações com WhatsApp, e-mail transacional e webhooks.",
     accent: "accent",
-    images: [{ src: "/projects/urban-crm.jpg", label: "urbancompany.com — Login" }],
+    images: [{ src: `${base}projects/urban-crm.webp`, label: "urbancompany.com — Login" }],
     status: "Em produção",
     statusTone: "prod",
     stack: ["TypeScript", "Node.js", "React", "Prisma", "PostgreSQL"],
@@ -40,8 +42,8 @@ const projects: Project[] = [
       "Plataforma de empréstimo gratuito de bicicletas compartilhadas em Guaíba/RS. Ano II do projeto — estações geolocalizadas, cadastro de usuários, controle de frota e alertas de disponibilidade em tempo real.",
     accent: "green",
     images: [
-      { src: "/projects/pedal-landing.jpg", label: "pedalars.org — Landing" },
-      { src: "/projects/pedal-stations.jpg", label: "App · Estações" },
+      { src: `${base}projects/pedal-landing.webp`, label: "pedalars.org — Landing" },
+      { src: `${base}projects/pedal-stations.webp`, label: "App · Estações" },
     ],
     live: "https://pedalars.org/",
     status: "Em produção",
@@ -57,8 +59,8 @@ const projects: Project[] = [
       "Plataforma integrada de monitoramento e proteção de mulheres e crianças em situação de vulnerabilidade. RBAC multi-perfil, alertas em tempo real, gestão de casos e conformidade LGPD. Backend Node.js + PostgreSQL.",
     accent: "sky",
     images: [
-      { src: "/projects/nidus-login.jpg", label: "Login · LGPD" },
-      { src: "/projects/nidus-dashboard.jpg", label: "Dashboard · Casos" },
+      { src: `${base}projects/nidus-login.webp`, label: "Login · LGPD" },
+      { src: `${base}projects/nidus-dashboard.webp`, label: "Dashboard · Casos" },
     ],
     status: "Em produção",
     statusTone: "prod",
@@ -105,6 +107,7 @@ function BrowserFrame({
           src={image}
           alt={label}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-top"
         />
       </div>
@@ -185,18 +188,18 @@ function ProjectSlide({
   const center = (index + 0.5) * step;
   const scale = useTransform(
     progress,
-    [center - step * 0.7, center, center + step * 0.7],
-    [0.88, 1, 0.88]
+    [center - step * 0.75, center, center + step * 0.75],
+    [0.94, 1, 0.94]
   );
   const opacity = useTransform(
     progress,
-    [center - step * 0.8, center, center + step * 0.8],
-    [0.3, 1, 0.3]
+    [center - step * 0.85, center, center + step * 0.85],
+    [0.45, 1, 0.45]
   );
   const rotateY = useTransform(
     progress,
-    [center - step * 0.7, center, center + step * 0.7],
-    [10, 0, -10]
+    [center - step * 0.75, center, center + step * 0.75],
+    [6, 0, -6]
   );
 
   return (
@@ -205,20 +208,32 @@ function ProjectSlide({
       className="shrink-0 w-screen h-screen flex items-center justify-center px-4 md:px-[5vw]"
     >
       <div
-        className="relative w-full max-w-[1280px] h-[88vh] md:h-[80vh]"
+        className="relative w-full max-w-[1280px] h-[85vh] md:h-[80vh]"
         style={{ perspective: 1600 }}
       >
         <motion.div
           style={{ rotateY, transformStyle: "preserve-3d" }}
-          className="relative w-full h-full rounded-[24px] md:rounded-[32px] overflow-hidden glass-strong"
+          className="project-card relative w-full h-full rounded-3xl md:rounded-[32px] overflow-hidden glass-strong"
         >
           <div
             className={`absolute inset-0 bg-gradient-to-br ${accentGlow[project.accent]} opacity-90 pointer-events-none`}
           />
           <div className="absolute inset-0 noise pointer-events-none" />
           <div className="absolute top-0 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-          <div className="relative h-full grid grid-rows-[auto_1fr] md:grid-rows-none md:grid-cols-[1fr_1.15fr] gap-4 md:gap-12 p-5 md:p-14 overflow-y-auto md:overflow-hidden">
-            <div className="order-2 md:order-1 flex flex-col justify-between min-h-0 gap-5 md:gap-0">
+          <div className="relative h-full flex flex-col md:grid md:grid-cols-[1fr_1.15fr] gap-5 md:gap-12 p-5 md:p-14">
+            <div className="order-1 md:order-2 relative shrink-0">
+              <div className="md:hidden">
+                <BrowserFrame
+                  image={project.images[0].src}
+                  label={project.images[0].label}
+                  className="shadow-[0_20px_60px_-20px_rgba(5,10,24,0.8)]"
+                />
+              </div>
+              <div className="hidden md:block h-full">
+                <Frames images={project.images} />
+              </div>
+            </div>
+            <div className="order-2 md:order-1 flex flex-col justify-between min-h-0 gap-4 md:gap-0 flex-1">
               <div>
                 <div className="flex items-center gap-2 md:gap-3 text-[9px] md:text-[10px] tracking-[0.25em] md:tracking-[0.3em] uppercase text-white/55 flex-wrap">
                   <span className="text-accent">/0{index + 1}</span>
@@ -230,21 +245,21 @@ function ProjectSlide({
                     {project.status}
                   </span>
                 </div>
-                <h3 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[0.95] mt-4 md:mt-6 text-balance text-white">
+                <h3 className="font-display text-3xl sm:text-4xl md:text-7xl leading-[0.95] mt-3 md:mt-6 text-balance text-white">
                   {project.title}
                 </h3>
-                <div className="text-sm text-white/70 mt-2 md:mt-3 font-medium">
+                <div className="text-sm text-white/70 mt-2 font-medium">
                   {project.subtitle}
                 </div>
-                <div className="text-[11px] md:text-xs text-white/55 mt-1.5 md:mt-2 tracking-wide">
+                <div className="text-[11px] md:text-xs text-white/55 mt-1 tracking-wide">
                   {project.tag}
                 </div>
               </div>
               <div>
-                <p className="max-w-md text-white/80 text-sm md:text-lg leading-relaxed">
+                <p className="max-w-md text-white/80 text-xs md:text-lg leading-relaxed">
                   {project.description}
                 </p>
-                <div className="mt-4 md:mt-6 flex flex-wrap gap-1.5">
+                <div className="mt-3 md:mt-6 flex flex-wrap gap-1.5">
                   {project.stack.map((s) => (
                     <span
                       key={s}
@@ -254,7 +269,7 @@ function ProjectSlide({
                     </span>
                   ))}
                 </div>
-                <div className="mt-5 md:mt-8 flex flex-wrap gap-3">
+                <div className="mt-4 md:mt-8 flex flex-wrap gap-3">
                   {project.live && (
                     <a
                       href={project.live}
@@ -288,18 +303,6 @@ function ProjectSlide({
                     </div>
                   )}
                 </div>
-              </div>
-            </div>
-            <div className="order-1 md:order-2 relative">
-              <div className="md:hidden">
-                <BrowserFrame
-                  image={project.images[0].src}
-                  label={project.images[0].label}
-                  className="shadow-[0_20px_60px_-20px_rgba(5,10,24,0.8)]"
-                />
-              </div>
-              <div className="hidden md:block h-full">
-                <Frames images={project.images} />
               </div>
             </div>
           </div>
