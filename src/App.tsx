@@ -3,6 +3,7 @@ import { PrismaHero } from "@/components/ui/prisma-hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Journey from "@/components/Journey";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -23,6 +24,7 @@ export default function App() {
         <About />
         <Projects />
         <Skills />
+        <Journey />
         <Contact />
         <Footer />
       </main>

@@ -77,14 +77,6 @@ export default function SiteIntro() {
                   className="h-full bg-gradient-to-r from-sky-soft via-accent to-accent-deep"
                 />
               </div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-[10px] tracking-[0.4em] uppercase text-white/40"
-              >
-                preparando a experiência
-              </motion.div>
             </div>
           </div>
         </motion.div>

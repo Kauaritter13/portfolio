@@ -80,12 +80,12 @@ export default function Contact() {
         className="relative max-w-6xl mx-auto text-center"
       >
         <div className="text-xs tracking-[0.3em] text-accent uppercase mb-6">
-          /06 Vamos conversar
+          /06 Contato
         </div>
         <h2 className="font-display text-[clamp(3rem,13vw,11rem)] leading-[1] tracking-tighter text-balance pb-[0.15em]">
-          <span className="block text-white">Um próximo</span>
+          <span className="block text-white">Bora</span>
           <span className="block italic text-gradient-warm pb-[0.1em]">
-            projeto juntos?
+            construir algo?
           </span>
         </h2>
 
@@ -96,8 +96,8 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-10 max-w-lg mx-auto text-white/75 text-lg leading-relaxed"
         >
-          Aberto a colaborações, oportunidades full stack e projetos com
-          propósito. A porta de entrada mais rápida é pelo WhatsApp.
+          Colaborações, freelas ou só um café virtual — chama. A porta mais
+          rápida é pelo WhatsApp.
         </motion.p>
 
         <motion.div

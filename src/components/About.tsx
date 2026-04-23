@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 import { useRef } from "react";
 
 const paragraph =
-  "Engenharia da Computação na UERGS, com três frentes ativas em produção: CRM SaaS imobiliário na Urban Company, sistema social de proteção na Nidus Software e P&D de máquinas industriais na Flesch Tech. Atuo do backend à interface, do banco ao hardware, sempre com foco em produto que vive em ambiente real.";
+  "Engenharia da Computação na UERGS. Construo produtos que vivem em ambiente real — do banco de dados à interface, do backend ao hardware. Gosto de sistemas que resolvem problema de verdade, com código limpo, performance e senso de produto.";
 
 const words = paragraph.split(" ");
 
@@ -67,12 +67,12 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-white/35">💼</span>
-                3 empresas em paralelo
+                Full Stack · TS · Node · React
               </div>
               <div className="flex items-center gap-2 pt-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-emerald-400/80">
-                  Sistemas em produção
+                  Disponível para projetos
                 </span>
               </div>
             </div>

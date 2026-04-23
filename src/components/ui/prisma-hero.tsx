@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+import { smoothScrollTo } from "@/lib/scroll";
 
 /* ---------------- WordsPullUp ---------------- */
 interface WordsPullUpProps {
@@ -100,15 +101,21 @@ const HERO_VIDEO =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4";
 
 const HeroBottomContent = () => {
+  const handleProjectsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    smoothScrollTo("#projetos", 0, 1200);
+  };
+
   return (
     <div className="mx-auto max-w-3xl flex flex-col items-center gap-6 text-center">
       <p className="text-sm sm:text-base" style={{ color: `${PRIMARY}CC` }}>
-        Engenharia da Computação · Desenvolvedor Full Stack. Três sistemas em produção —
-        CRM SaaS imobiliário, plataforma social de proteção e P&D em máquinas industriais.
+        Engenharia da Computação · Desenvolvedor Full Stack. Do banco ao frontend,
+        do backend à máquina industrial.
       </p>
 
       <motion.a
         href="#projetos"
+        onClick={handleProjectsClick}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.96 }}
         transition={{ type: "spring", stiffness: 380, damping: 22 }}
