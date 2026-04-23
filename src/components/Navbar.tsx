@@ -7,7 +7,6 @@ const links = [
   { href: "#sobre", label: "Sobre" },
   { href: "#projetos", label: "Projetos" },
   { href: "#stack", label: "Stack" },
-  { href: "#jornada", label: "Jornada" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -75,10 +74,12 @@ export default function Navbar() {
             {links.map((l) => {
               const isActive = active === l.href;
               return (
-                <a
+                <motion.a
                   key={l.href}
                   href={l.href}
                   onClick={(e) => handleClick(e, l.href)}
+                  whileTap={{ scale: 0.92 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   className="relative px-3 py-1.5 text-xs transition-colors rounded-full"
                 >
                   <span
@@ -99,18 +100,21 @@ export default function Navbar() {
                       }}
                     />
                   )}
-                </a>
+                </motion.a>
               );
             })}
           </nav>
 
-          <a
+          <motion.a
             href="#contato"
             onClick={(e) => handleClick(e, "#contato")}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.94 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="liquid-pill btn-accent-liquid hidden md:inline-flex text-xs font-medium px-4 py-2 rounded-full"
           >
             Falar comigo
-          </a>
+          </motion.a>
 
           <button
             type="button"

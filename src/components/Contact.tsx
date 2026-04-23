@@ -58,15 +58,20 @@ export default function Contact() {
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none -z-[1]"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 75% at 50% 50%, black 30%, transparent 85%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 75% at 50% 50%, black 30%, transparent 85%)",
+        }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[700px] bg-accent/30 blur-[170px] rounded-full" />
-        <div className="absolute top-1/3 left-[20%] -translate-y-1/2 w-[700px] h-[500px] bg-sky/30 blur-[150px] rounded-full" />
-        <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[600px] h-[500px] bg-accent-soft/25 blur-[140px] rounded-full" />
-        <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-sky-soft/20 blur-[130px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[600px] bg-accent/18 blur-[160px] rounded-full" />
+        <div className="absolute top-1/3 left-[22%] -translate-y-1/2 w-[600px] h-[400px] bg-accent-soft/15 blur-[140px] rounded-full" />
+        <div className="absolute top-1/2 right-[18%] -translate-y-1/2 w-[500px] h-[400px] bg-accent/12 blur-[130px] rounded-full" />
         <motion.div
-          animate={{ scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }}
+          animate={{ scale: [1, 1.08, 1], opacity: [0.55, 0.85, 0.55] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/40 blur-[120px] rounded-full"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-accent/25 blur-[110px] rounded-full"
         />
       </div>
 

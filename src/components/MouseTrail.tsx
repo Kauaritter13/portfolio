@@ -27,32 +27,41 @@ export default function MouseTrail() {
     };
     applyCursorClass();
 
+    let rafId = 0;
+    let pendingTarget: HTMLElement | null = null;
+    let lastHoverState = false;
+
     const onMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      const target = e.target as HTMLElement | null;
-      if (!target) return;
-      const interactive = target.closest(
-        "a, button, [role='button'], input, textarea, [data-cursor]"
-      );
-      setHovering(Boolean(interactive));
+      pendingTarget = e.target as HTMLElement | null;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        const target = pendingTarget;
+        if (!target) return;
+        const isInteractive = !!target.closest(
+          "a, button, [role='button'], input, textarea, [data-cursor]"
+        );
+        if (isInteractive !== lastHoverState) {
+          lastHoverState = isInteractive;
+          setHovering(isInteractive);
+        }
+      });
     };
     const onDown = () => setPressed(true);
     const onUp = () => setPressed(false);
 
     window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("pointermove", onMove as EventListener, {
-      passive: true,
-    });
     window.addEventListener("mousedown", onDown);
     window.addEventListener("mouseup", onUp);
     window.addEventListener("resize", applyCursorClass);
     return () => {
       window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("pointermove", onMove as EventListener);
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
       window.removeEventListener("resize", applyCursorClass);
+      if (rafId) cancelAnimationFrame(rafId);
       document.body.classList.remove("cursor-custom");
     };
   }, [mouseX, mouseY]);

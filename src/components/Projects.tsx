@@ -216,10 +216,15 @@ function ProjectSlide({
           className="project-card relative w-full h-full rounded-3xl md:rounded-[32px] overflow-hidden glass-strong"
         >
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${accentGlow[project.accent]} opacity-90 pointer-events-none`}
+            className={`absolute inset-0 bg-gradient-to-br ${accentGlow[project.accent]} opacity-55 pointer-events-none`}
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(ellipse 95% 95% at 50% 50%, black 45%, transparent 90%)",
+              maskImage:
+                "radial-gradient(ellipse 95% 95% at 50% 50%, black 45%, transparent 90%)",
+            }}
           />
-          <div className="absolute inset-0 noise pointer-events-none" />
-          <div className="absolute top-0 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+          <div className="absolute top-0 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-cream-soft/30 to-transparent" />
           <div className="relative h-full flex flex-col md:grid md:grid-cols-[1fr_1.15fr] gap-5 md:gap-12 p-5 md:p-14">
             <div className="order-1 md:order-2 relative shrink-0">
               <div className="md:hidden">

@@ -6,23 +6,28 @@ const config: Config = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: "#FF6A2B",
-          soft: "#FFB27A",
-          deep: "#EA580C",
-          amber: "#FBBF24",
+          DEFAULT: "#D97757",
+          soft: "#E8A485",
+          deep: "#C6603F",
+          amber: "#E8C38A",
         },
         sky: {
-          DEFAULT: "#3B82F6",
-          deep: "#1E40AF",
-          soft: "#60A5FA",
-          ice: "#BFDBFE",
+          DEFAULT: "#D97757",
+          deep: "#C6603F",
+          soft: "#E8A485",
+          ice: "#F5E6D3",
         },
         ink: {
-          950: "#050A18",
-          900: "#0A1628",
-          800: "#0F1E3A",
-          700: "#1A2E52",
-          600: "#253E6E",
+          950: "#0D0906",
+          900: "#14100D",
+          800: "#1F1915",
+          700: "#2A2420",
+          600: "#3A332D",
+        },
+        cream: {
+          DEFAULT: "#E1E0CC",
+          soft: "#F5E6D3",
+          warm: "#E8DCC5",
         },
       },
       fontFamily: {
