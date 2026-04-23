@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import { PrismaHero } from "@/components/ui/prisma-hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
@@ -25,7 +25,7 @@ export default function App() {
       <ScrollProgress />
       <Navbar />
       <main className="relative text-white">
-        <Hero />
+        <PrismaHero />
         <About />
         <Projects />
         <Skills />
