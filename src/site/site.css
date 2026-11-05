@@ -1,0 +1,12 @@
+html, body, #root { background: #000 !important; }
+body { user-select: text !important; -webkit-user-select: text !important; }
+.bg-grid {
+  background-image:
+    linear-gradient(to right, #fff 1px, transparent 1px),
+    linear-gradient(to bottom, #fff 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
+}
+::selection { background: #fff; color: #000; }
+html { scroll-behavior: smooth; }

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  content: ["./index.html", "./en/index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -33,6 +33,7 @@ const config: Config = {
       fontFamily: {
         sans: ['"Inter"', "system-ui", "sans-serif"],
         display: ['"Instrument Serif"', "serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
       animation: {
         "pulse-slow": "pulseSlow 3.2s ease-in-out infinite",

@@ -2,16 +2,14 @@
 
 Portfólio pessoal — Engenharia da Computação · Desenvolvedor Full Stack.
 
-Sistemas em produção em paralelo: CRM SaaS imobiliário (Urban Company), plataforma
-social de proteção integrada (Nidus Software) e P&D em máquinas industriais
-(Flesch Tech).
+SaaS em produção, fluxos com agentes e P&D industrial na Conecta Indústria Eletroeletrônica.
 
 ## Stack
 
 - React 18 · TypeScript · Vite
 - Tailwind CSS · shadcn/ui
 - Framer Motion
-- Apple-style Liquid Glass
+- Three.js (cena 3D)
 
 ## Dev
 
